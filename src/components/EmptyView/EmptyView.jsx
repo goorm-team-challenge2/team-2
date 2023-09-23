@@ -1,6 +1,9 @@
 import cn from "classnames";
-import { Card } from "@/components";
+
+import { Card } from '@/components';
+
 import { Typography } from "@goorm-dev/gds-challenge";
+
 import styles from "./EmptyView.module.scss";
 
 const EmptyView = () => {

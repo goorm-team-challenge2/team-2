@@ -1,4 +1,5 @@
 import { EmptyView, Header } from '@/components';
+import UserAnswer from '@/components/UserAnswer/UserAnswer';
 
 import styles from './App.module.scss';
 
@@ -7,7 +8,8 @@ function App() {
 		<div className={styles.App}>
 			<Header />
 			<main className={styles.main}>
-				<EmptyView />
+				{/* <EmptyView /> */}
+				<UserAnswer />
 			</main>
 		</div>
 	);
