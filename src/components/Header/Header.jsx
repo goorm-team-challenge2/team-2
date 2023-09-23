@@ -1,10 +1,9 @@
 import cn from 'classnames';
-
 import { Button, Typography } from '@goorm-dev/gds-challenge';
-
 import styles from './Header.module.scss';
-import ParentModal from '../Modals/ParentModal/ParentModal';
+import ParentModal from '../Modals/ParentModal';
 import { useState } from 'react';
+import ModalTwo from '../Modals/ModalTwo/ModalTwo';
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +22,7 @@ const Header = () => {
 					설문조사 참여하기
 				</Button>
 				<ParentModal isOpen={isOpen} toggle={toggle}>
-					<p>{123}</p>
+					<ModalTwo />
 				</ParentModal>
 			</div>
 		</header>
