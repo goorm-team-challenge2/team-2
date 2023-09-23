@@ -1,0 +1,22 @@
+.button {
+	display: flex;
+	padding: 1rem 1.5rem;
+	align-items: center;
+	gap: 0.5rem;
+	align-self: stretch;
+	background-color: #fff;
+	outline: none;
+	border-bottom: 1px solid #e1e1e8;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.card {
+	border-bottom: 1px solid #e1e1e8;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
