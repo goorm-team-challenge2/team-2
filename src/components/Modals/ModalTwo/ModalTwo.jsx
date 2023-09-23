@@ -7,7 +7,7 @@ import {
 	TextArea,
 } from '@goorm-dev/gds-challenge';
 
-export default function ModalTwo() {
+export default function ModalTwo({ onChange }) {
 	const [one, setOne] = useState(null);
 	const [two, setTwo] = useState(null);
 	const [checkBoxes, setCheckBoxes] = useState({
@@ -39,7 +39,12 @@ export default function ModalTwo() {
 						*
 					</Typography>
 				</Typography>
-				<div style={{ display: 'flex', gap: '16px' }}>
+				<div
+					style={{ display: 'flex', gap: '16px' }}
+					onClick={(e) => {
+						onChange(one, two, checkBoxes, reason);
+					}}
+				>
 					<Button
 						color="basic"
 						size="lg"
@@ -71,7 +76,12 @@ export default function ModalTwo() {
 						*
 					</Typography>
 				</Typography>
-				<div style={{ display: 'flex', gap: '16px' }}>
+				<div
+					style={{ display: 'flex', gap: '16px' }}
+					onClick={(e) => {
+						onChange(one, two, checkBoxes, reason);
+					}}
+				>
 					<Button
 						color="basic"
 						size="lg"
@@ -111,7 +121,10 @@ export default function ModalTwo() {
 								gridTemplateColumns: 'repeat(3,1fr)',
 								rowGap: '16px',
 							}}
-							onChange={handleCheckBoxChange}
+							onChange={(e) => {
+								handleCheckBoxChange(e);
+								onChange(one, two, checkBoxes, reason);
+							}}
 						>
 							<Input
 								type="checkbox"
@@ -150,6 +163,7 @@ export default function ModalTwo() {
 							value={reason}
 							onChange={(e) => {
 								setReason(e.target.value);
+								onChange(one, two, checkBoxes, reason);
 							}}
 						/>
 					</Form.Group>

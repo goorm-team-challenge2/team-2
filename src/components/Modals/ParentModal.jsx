@@ -3,7 +3,7 @@ import { Modal, Button, CarouselIndicators } from '@goorm-dev/gds-challenge';
 
 const LENGTH = 4;
 
-export default function ParentModal({ isOpen, toggle, children }) {
+export default function ParentModal({ isOpen, toggle, isCompleted, children }) {
 	const [activeIndex, setActiveIndex] = useState(0);
 	return (
 		<Modal isOpen={isOpen} centered fade={false} toggle={toggle}>
@@ -26,7 +26,13 @@ export default function ParentModal({ isOpen, toggle, children }) {
 					이전
 				</Button>
 				<Button
-					disabled={activeIndex >= LENGTH - 1}
+					disabled={
+						!isCompleted
+							? true
+							: activeIndex >= LENGTH - 1
+							? true
+							: false
+					}
 					onClick={() => {
 						setActiveIndex((prev) => {
 							if (prev >= LENGTH - 1) {
