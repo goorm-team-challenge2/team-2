@@ -1,3 +1,4 @@
+
 import {useState, useEffect} from 'react';
 
 import {Collapse, Button} from '@goorm-dev/gds-challenge';
@@ -117,6 +118,7 @@ const User = ({ data, num, onDelete }) => {
             </Collapse>
         </>
     );
+
 };
 
 export default User;

@@ -1,0 +1,96 @@
+.container {
+  width: 420px;
+  height: 544px;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBox {
+  width: 420px;
+  height: 230px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  
+  //styleName: KOR/captionㅣ0.75rem;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.4000000059604645px;
+  text-align: left;
+
+  div {
+    width: 420px;
+    height: 66px;
+  }
+}
+
+.inputStar {
+  //styleName: KOR/paragraph-smㅣ0.75rem;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.10000000149011612px;
+  text-align: left;
+
+  color: #F5535E;
+}
+
+.inputLabel {
+  width: 53px;
+}
+.inputStyle {
+  width: 420px;
+  height: 40px;
+  gap: 16px;
+}
+
+.aggrementBox {
+  width: 420px;
+  height: 194px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+
+  //styleName: KOR/subtitle-1ㅣ0.875rem;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.10000000149011612px;
+  text-align: left;
+
+}
+
+.aggrementBorder {
+  border: 1px solid #E1E1E8;
+  width: inherit;
+}
+
+.advBox {
+  width: 157px;
+  height: 22px;
+  padding: 0px 0px 0px 26px;
+  gap: 16px;
+  display: flex;
+
+  label {
+    width: 40px;
+  }
+}
+
+.advMessage {
+  //styleName: KOR/captionㅣ0.75rem;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.4000000059604645px;
+  text-align: left;
+
+  color: #5094FA;
+}
+ 

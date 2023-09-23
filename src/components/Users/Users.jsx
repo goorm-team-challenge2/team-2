@@ -564,11 +564,15 @@ const Users = ({ setUserCount }) => {
 		}
 	}, [data.length, setUserCount]);
 
+];
+
+const Users = () => {
 	return (
 		<>
 			{data
 				.map((user, index) => {
 					return <User key={index} data={user} num={index} onDelete={() => handleDelete(index)} />;
+
 				})
 				.reverse()}
 		</>
