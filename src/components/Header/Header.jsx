@@ -4,6 +4,7 @@ import styles from './Header.module.scss';
 import ParentModal from '../Modals/ParentModal';
 import { useState } from 'react';
 import ModalTwo from '../Modals/ModalTwo/ModalTwo';
+import ModalFour from '../Modals/ModalFour/ModalFour';
 
 const Header = ({ onSaveUserInfo }) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +27,14 @@ const Header = ({ onSaveUserInfo }) => {
 			},
 		});
 	};
+
+	const onChangeModalFour = (opinion) => {
+		setIsCompleted(opinion);
+		onSaveUserInfo(3, {
+			id: 3,
+			sendMessage: opinion,
+		});
+	};
 	return (
 		<header className={cn(styles.header)}>
 			<div className={cn(styles.contents)}>
@@ -40,7 +49,7 @@ const Header = ({ onSaveUserInfo }) => {
 					toggle={toggle}
 					isCompleted={isCompleted}
 				>
-					<ModalTwo onChange={onChangeModalTwo} />
+					<ModalFour onChange={onChangeModalFour} />
 				</ParentModal>
 			</div>
 		</header>
