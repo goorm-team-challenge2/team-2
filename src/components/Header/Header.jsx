@@ -1,12 +1,17 @@
-import cn from 'classnames';
-import { Button, Typography } from '@goorm-dev/gds-challenge';
-import styles from './Header.module.scss';
-import ParentModal from '../Modals/ParentModal';
 import { useState } from 'react';
-import ModalTwo from '../Modals/ModalTwo/ModalTwo';
-import ModalFour from '../Modals/ModalFour/ModalFour';
+import cn from 'classnames';
 
-const Header = ({ onSaveUserInfo }) => {
+import { Button, Typography } from '@goorm-dev/gds-challenge';
+
+import ModalFour from '../Modals/ModalFour/ModalFour';
+import ModalOne from '../Modals/ModalOne/ModalOne';
+import ModalThree from '../Modals/ModalThree/ModalThree';
+import ModalTwo from '../Modals/ModalTwo/ModalTwo';
+import ParentModal from '../Modals/ParentModal';
+
+import styles from './Header.module.scss';
+
+const Header = ({ onSaveUserInfo, modalId }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => {
 		setIsOpen((prev) => {
@@ -15,13 +20,41 @@ const Header = ({ onSaveUserInfo }) => {
 	};
 	const [isCompleted, setIsCompleted] = useState(false);
 
+	const onChangeModalOne = (
+		name,
+		phone,
+		email,
+		privacyAggre,
+		marketingAggre,
+		advAggreDetail,
+	) => {
+		if (name && phone && email && privacyAggre) {
+			setIsCompleted(true);
+		} else {
+			setIsCompleted(false);
+		}
+		onSaveUserInfo(0, {
+			id: 0,
+			name,
+			phone,
+			email,
+			agreements: {
+				privacy: privacyAggre,
+				marketing: marketingAggre,
+				advertisement: false,
+				advEmail: advAggreDetail.email,
+				advSMS: advAggreDetail.sms,
+			},
+		});
+	};
+
 	const onChangeModalTwo = (one, two, checkBoxes, reason) => {
 		setIsCompleted(one || two);
 		onSaveUserInfo(1, {
 			id: 1,
-			majorIsSW: one === '전공' ? true : false,
+			majorIsSW: one === '전공',
 			goorm: {
-				experience: two === '예' ? true : false,
+				experience: two === '예',
 				usedService: checkBoxes,
 				reasonForUse: reason,
 			},
@@ -49,6 +82,7 @@ const Header = ({ onSaveUserInfo }) => {
 					toggle={toggle}
 					isCompleted={isCompleted}
 				>
+					<ModalTwo onChange={onChangeModalTwo} />
 					<ModalFour onChange={onChangeModalFour} />
 				</ParentModal>
 			</div>

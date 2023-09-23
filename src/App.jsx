@@ -1,9 +1,11 @@
+import { useState } from 'react';
+
 import { EmptyView, Header } from '@/components';
 
 import styles from './App.module.scss';
-import { useState } from 'react';
 
 function App() {
+	const [modalId, setModalId] = useState(0);
 	const [userInfo, setUserInfo] = useState([
 		{
 			// ModalOne
@@ -15,7 +17,6 @@ function App() {
 				privacy: false,
 				marketing: false,
 				advertisement: false,
-				// 상태로 관리해주셔도 되고 데이터로 관리해주셔도 될거같아요
 				advEmail: false,
 				advSMS: false,
 			},
@@ -57,6 +58,7 @@ function App() {
 						return newInfo;
 					});
 				}}
+				modalId={modalId}
 			/>
 			<main className={styles.main}>
 				<EmptyView />
