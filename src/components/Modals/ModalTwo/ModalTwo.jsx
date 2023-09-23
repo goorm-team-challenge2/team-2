@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+
 import {
-	Typography,
-	Form,
 	Button,
+	Form,
 	Input,
 	TextArea,
+	Typography,
 } from '@goorm-dev/gds-challenge';
 
 export default function ModalTwo({ onChange }) {
@@ -41,7 +42,7 @@ export default function ModalTwo({ onChange }) {
 				</Typography>
 				<div
 					style={{ display: 'flex', gap: '16px' }}
-					onClick={(e) => {
+					onClick={() => {
 						onChange(one, two, checkBoxes, reason);
 					}}
 				>
@@ -110,9 +111,8 @@ export default function ModalTwo({ onChange }) {
 				<>
 					<Form.Group style={{ marginBottom: '32px' }} gap="lg">
 						<Typography token="paragraph">
-							{
-								'2-1. 사용 경험이 있는 서비스를 선택해주세요. (복수선택가능)'
-							}
+							2-1. 사용 경험이 있는 서비스를 선택해주세요.
+							(복수선택가능)
 						</Typography>
 
 						<div

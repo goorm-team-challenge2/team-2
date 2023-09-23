@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { Input, Label } from '@goorm-dev/gds-challenge';
+import { Input, Label, Typography } from '@goorm-dev/gds-challenge';
 
 import styles from './ModalOne.module.scss';
 
-const ModalOne = () => {
+const ModalOne = ({ onChange }) => {
 	const [name, setName] = useState(null);
 	const [phone, setPhone] = useState(null);
 	const [email, setEmail] = useState(null);
@@ -18,6 +18,19 @@ const ModalOne = () => {
 		email: true,
 		sms: true,
 	});
+
+	useEffect(() => {
+		if (name && phone && email && privacyAggre) {
+			onChange(
+				name,
+				phone,
+				email,
+				privacyAggre,
+				marketingAggre,
+				advAggreDetail,
+			);
+		}
+	}, [name, phone, email, privacyAggre]);
 
 	useEffect(() => {
 		if (
@@ -45,9 +58,11 @@ const ModalOne = () => {
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.title}>참여자 정보를 입력해주세요.</div>
-			<div className={styles.subTitle}>
-				오프라인 팀 챌린지 참여자의 정보를 수집하려고 해요.
+			<div>
+				<Typography token="h4">참여자 정보를 입력해주세요.</Typography>
+				<Typography token="paragraph-sm">
+					오프라인 팀 챌린지 참여자의 정보를 수집하려고 해요.
+				</Typography>
 			</div>
 
 			<div className={styles.inputBox}>
