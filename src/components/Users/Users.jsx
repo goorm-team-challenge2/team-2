@@ -1,6 +1,7 @@
 import User from './User/User';
+import {useState, useEffect} from 'react';
 
-const data = [
+const initialData = [
 	{
 		// ModalOne
 		name: '김바다',
@@ -547,12 +548,27 @@ const data = [
 	},
 ];
 
-const Users = () => {
+
+
+const Users = ({ setUserCount }) => {
+	const [data, setData] = useState(initialData);
+
+	const handleDelete = (index) => {
+		const newData = data.filter((_, i) => i !== index);
+		setData(newData);
+	};
+
+	useEffect(() => {
+		if (setUserCount) {
+			setUserCount(data.length);
+		}
+	}, [data.length, setUserCount]);
+
 	return (
 		<>
 			{data
 				.map((user, index) => {
-					return <User key={index} data={user} num={index} />;
+					return <User key={index} data={user} num={index} onDelete={() => handleDelete(index)} />;
 				})
 				.reverse()}
 		</>

@@ -24,7 +24,7 @@ const checkedServices = (usedService) => {
     return str;
 };
 
-const User = ({data, num}) => {
+const User = ({ data, num, onDelete }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isDeleted, setIsDeleted] = useState(false);
 
@@ -36,7 +36,7 @@ const User = ({data, num}) => {
     };
 
     const handleDelete = () => {
-        setIsDeleted(true);  // DeleteButton 클릭 시 isDeleted 상태를 true로 설정
+        setIsDeleted(true);
     };
 
     useEffect(() => {
@@ -51,12 +51,13 @@ const User = ({data, num}) => {
 
     return (
         <>
-            <button className={`${styles.button} user`} onClick={toggleCard}>
+            <button className={`${styles.button} user`} onClick={toggleCard} >
                 <div>{`참여자 ${num + 1}. ${data.name}`}</div>
-                <EditButton/>
-                <DeleteButton className='delete'
-                              onClick={handleDelete}/>
+                <div className={styles.headerbtn}>
+                    <EditButton/>
+                    <DeleteButton className='delete' onClick={onDelete} />
                 {isOpen ? <ChevronUpIcon/> : <ChevronDownIcon/>}
+                </div>
             </button>
             <Collapse isOpen={isOpen}>
                 <Card
