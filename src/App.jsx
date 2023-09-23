@@ -40,6 +40,9 @@ function App() {
 			id: 2,
 			// ModalThree (각 문장 28자 제한)
 			expectations: ['', '', '', ''],
+		},
+		{
+			id: 3,
 			// ModalFour
 			sendMessage: '',
 		},
