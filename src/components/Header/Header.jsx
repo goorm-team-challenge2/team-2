@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { Button, Typography } from '@goorm-dev/gds-challenge';
 
+import ModalFour from '../Modals/ModalFour/ModalFour';
 import ModalOne from '../Modals/ModalOne/ModalOne';
 import ModalThree from '../Modals/ModalThree/ModalThree';
 import ModalTwo from '../Modals/ModalTwo/ModalTwo';
@@ -59,6 +60,14 @@ const Header = ({ onSaveUserInfo, modalId }) => {
 			},
 		});
 	};
+
+	const onChangeModalFour = (opinion) => {
+		setIsCompleted(opinion);
+		onSaveUserInfo(3, {
+			id: 3,
+			sendMessage: opinion,
+		});
+	};
 	return (
 		<header className={cn(styles.header)}>
 			<div className={cn(styles.contents)}>
@@ -74,6 +83,7 @@ const Header = ({ onSaveUserInfo, modalId }) => {
 					isCompleted={isCompleted}
 				>
 					<ModalTwo onChange={onChangeModalTwo} />
+					<ModalFour onChange={onChangeModalFour} />
 				</ParentModal>
 			</div>
 		</header>
